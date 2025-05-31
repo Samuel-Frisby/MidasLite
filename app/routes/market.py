@@ -15,3 +15,4 @@ async def get_stock(request: Request, ticker: str = Query(...)):
         "ticker": ticker.upper(),
         "stock": stock_data
     })
+

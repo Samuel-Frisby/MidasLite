@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from backend.api import market
+from app.routes import market
 
 app = FastAPI()
 app.include_router(market.router, prefix="/market")
