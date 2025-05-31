@@ -1,0 +1,22 @@
+<!-- app/templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Midas Lite</title>
+  <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+</head>
+<body>
+  <h1>Midas Lite</h1>
+
+  <!-- 🔍 Search Form -->
+  <form hx-get="/market" hx-target="#result" hx-swap="innerHTML">
+    <input type="text" name="ticker" placeholder="Enter a stock ticker (e.g., AAPL)" required>
+    <button type="submit">Search</button>
+  </form>
+
+  <hr>
+
+  <!-- 📦 Result Area -->
+  <div id="result"></div>
+</body>
+</html>
