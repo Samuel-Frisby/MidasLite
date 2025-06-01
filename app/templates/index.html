@@ -2,11 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bloomberg Lite</title>
+  <title>Midas Lite</title>
   <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+  <link rel="stylesheet" href="/static/theme/theme.css">
+
 </head>
 <body>
-  <h1>Bloomberg Lite</h1>
+  <h1>Midas Lite</h1>
 
   <!-- 🔍 Search Form -->
   <form hx-get="/market" hx-target="#result" hx-swap="innerHTML">
@@ -18,6 +20,19 @@
 
   <!-- 📦 Result Area -->
   <div id="result"></div>
+
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script type="module">
+  import { renderChartFromData } from "/static/js/chart.js";
+
+  // Render on HTMX swap
+  document.body.addEventListener('htmx:afterSwap', (e) => {
+    if (e.target.id === "result") {
+      renderChartFromData("history-data", "priceChart");
+    }
+  });
+  </script>
+
 </body>
 </html>
 
